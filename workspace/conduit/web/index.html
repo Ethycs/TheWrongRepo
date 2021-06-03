@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    Fore more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="conduit">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <title>conduit</title>
+  <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+  <!-- This script installs service_worker.js to provide PWA functionality to
+       application. For more information, see:
+       https://developers.google.com/web/fundamentals/primers/service-workers -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('flutter-first-frame', function () {
+        navigator.serviceWorker.register('flutter_service_worker.js');
+      });
+    }
+    //var audioContext = new AudioContext({ sampleRate: 16000 });
+  </script>
+  <script src="js/p5.min.js" type="application/javascript"></script>
+  <script src="js/p5.sound.min.js" type="application/javascript">
+
+  </script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@latest/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js">
+    </script>
+  <script>
+
+    var audioContext;
+    var amp; 
+    function logMap(val, inMin, inMax, outMin, outMax) {
+      var offset = 0;
+      if (inMax === 0 || inMin === 0) {
+        offset = 1;
+        inMin += offset;
+        inMax += offset;
+      }
+      var a = (outMin - outMax) / Math.log10(inMin / inMax);
+      var b = outMin - a * Math.log10(inMin);
+      return a * Math.log10(val + offset) + b;
+    }
+    var mic;
+    var amplitude;
+    var vis_switch = true; // This is a hack >:(
+    var prevLevels = new Array(60);
+
+    function setup() {
+      getAudioContext().suspend();
+      let cnv = createCanvas(windowWidth, 400); //windowHeigth/ratio
+      cnv.parent('container');
+      noStroke();
+      rectMode(CENTER);
+      colorMode(HSB);
+
+      mic = new p5.AudioIn();
+      mic.start();
+      amplitude = new p5.Amplitude();
+      amplitude.setInput(mic);
+      amplitude.smooth(0.5);
+    }
+
+    function windowResized() {
+      resizeCanvas(windowWidth, 400);
+    }
+
+    function draw() {
+      clear();
+      var level;
+      if (vis_switch == true) {
+        level = amplitude.getLevel();
+      } else {
+        level = 0;
+      }
+
+
+      // rectangle variables
+      var spacing = 10;
+      var w = width / (prevLevels.length * spacing);
+
+      var minHeight = 2;
+      var roundness = 20;
+
+      // add new level to end of array
+      prevLevels.push(level);
+
+      // remove first item in array
+      prevLevels.splice(0, 1);
+
+      // loop through all the previous levels
+      for (var i = 0; i < prevLevels.length; i++) {
+
+        var x = map(i, prevLevels.length, 0, width / 2, width);
+        var h = map(prevLevels[i], 0, 0.5, minHeight, height);
+
+        var alphaValue = logMap(i, 0, prevLevels.length, 1, 250);
+
+        var hueValue = map(h, minHeight, height, 200, 255);
+
+        fill(hueValue, 255, 255, alphaValue);
+
+        rect(x, height / 2, w, h);
+        rect(width - x, height / 2, w, h);
+      }
+
+    }
+
+
+
+    const sdk = window.SpeechSDK;
+    const speechSubscriptionKey = "c54b24d316544bf6816a232061ad1c76";
+    const serviceRegion = "westus";
+    try {
+      speechConfig = sdk.SpeechConfig.fromSubscription(speechSubscriptionKey, serviceRegion);
+    } catch (error) {
+      console.error(error);
+    }
+
+    var recognizer;
+    function listenToVoice() {
+
+      userStartAudio();
+      vis_switch = true;
+      audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
+      //var audioConfig = sdk.AudioConfig.fromStreamInput(audioStream = mic.stream);
+      recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
+      try {
+        speechConfig = sdk.SpeechConfig.fromSubscription(speechSubscriptionKey, serviceRegion);
+        recognizer.recognizing = (s, e) => {
+          console.log("INTERMEDIATE RESULT RECEIVED: " + `${e.result.text}`);
+        };
+        recognizer.recognized = (s, e) => {
+          console.log("TEST", "FINAL RESULT RECEIVED: " + `${e.result.text}`);
+          //postPhrase(e)
+        };
+        recognizer.startContinuousRecognitionAsync(
+          //cb = postPhrase(e), // Callback
+          err => {
+            console.error(e, "Error");
+          }
+
+        );
+        // setOnTaskCompletedListener(task, result => {
+        //   console.log("TEST", "EVENT STARTED!!!");
+        // })
+      } catch (error) {
+        console.error(error, "Error");
+      }
+
+    }
+    function stopListening() {
+      try {
+        vis_switch = false;
+        recognizer.stopContinuousRecognitionAsync();
+        recognizer.close();
+        console.log("Stop");
+      } catch (error) {
+        console.error(error);
+      }
+
+    }
+  </script>
+  <script src="main.dart.js" type="application/javascript"></script>
+  <div id="container" style="position:absolute; z-index: 100;text-align:center;"></div>
+</body>
+
+</html>
