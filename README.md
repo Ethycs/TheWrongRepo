@@ -63,3 +63,7 @@ https://docs.microsoft.com/en-us/azure/static-web-apps/getting-started?tabs=vani
 
 This code as inspiration:
 https://github.com/mhadaily/azure-flutter-web-demo/blob/master/.github/workflows/azure-static-web-apps-gentle-dune-0a345d303.yml
+
+https://stackoverflow.com/questions/53857085/change-current-working-directory-in-azure-pipelines
+
+https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions

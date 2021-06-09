@@ -6,11 +6,14 @@ on:
       - main
     paths:
       - workspace/conduit/**
-      - .github/workflows/*
+      - .github/workflows/azure-static-web-apps-proud-hill-07beb4010.yml
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
+    paths:
+      - workspace/conduit/**
+      - .github/workflows/azure-static-web-apps-proud-hill-07beb4010.yml
 
 jobs:
   build_and_deploy_job:
@@ -24,9 +27,13 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           flutter-version: '2.0.5' # Change to exactly your version (this is a bug, no automagic :( ))
+          working-directory: workspace/conduit/
       - run: ls
+        working-directory: workspace/conduit/
       - run: flutter pub get
+        working-directory: workspace/conduit/
       - run: flutter test
+        working-directory: workspace/conduit/
       #- run: flutter build web
       - name: Build And Deploy
         id: builddeploy
