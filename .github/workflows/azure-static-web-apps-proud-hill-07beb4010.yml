@@ -18,6 +18,12 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '2.0.5' # Change to exactly your version (this is a bug, no automagic :( ))
+      - run: flutter pub get
+      - run: flutter test
+      #- run: flutter build web
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1

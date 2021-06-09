@@ -54,3 +54,12 @@ Azure App Service provides built-in authentication and authorization capabilitie
 | :----------------------------------------------------------- | :----------------- | :----------------------------------------------------------- |
 | [Microsoft Identity Platform](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis) | `/.auth/login/aad` | [App Service Microsoft Identity Platform login](https://docs.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad) |
 
+
+We also use a github action specified
+https://github.com/marketplace/actions/flutter-action
+
+This tutorial:
+https://docs.microsoft.com/en-us/azure/static-web-apps/getting-started?tabs=vanilla-javascript
+
+This code as inspiration:
+https://github.com/mhadaily/azure-flutter-web-demo/blob/master/.github/workflows/azure-static-web-apps-gentle-dune-0a345d303.yml
