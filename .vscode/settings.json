@@ -1,5 +1,5 @@
 {
-    "staticWebApps.appSubpath": "/workspace/conduit/build/web",
+    "staticWebApps.appSubpath": "./",
     "staticWebApps.apiSubpath": "api",
-    "staticWebApps.outputSubpath": "build"
+    "staticWebApps.outputSubpath": "./"
 }
