@@ -1,6 +1,7 @@
 # flutter_dev
 
-author: Cezary Żelisko
+author: Jasper Yao
+image author: Cezary Żelisko
 
 ## About
 The repository contains a workspace adapted to the development of applications using the Flutter framework. The workspace with all necessary dependencies is organized in a Docker container.
@@ -42,8 +43,7 @@ I need to find shortest path to deploying the Flutter as as a web server
 
 Azure Active Directory (Azure AD) is Microsoft’s cloud-based identity and access management service, which helps your employees sign in and access resources.
 
-Azure App Service provides built-in authentication and authorization capabilities (sometimes referred to as "Easy Auth"), so you can sign in users and access data by writing minimal or no code in your web app, RESTful API, and mobile back end, and also [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview). This article describes how App Service helps simplify authentication and authorization for your app.
-
+Azure App Service provides built-in authentication and authorization capabilities (sometimes referred to as "Easy Auth"), so you can sign in users and access data by writing minimal or no code in your web app, RESTful API, and mobile back end, and also [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview).
 | Provider                                                     | Sign-in endpoint   | How-To guidance                                              |
 | :----------------------------------------------------------- | :----------------- | :----------------------------------------------------------- |
 | [Microsoft Identity Platform](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis) | `/.auth/login/aad` | [App Service Microsoft Identity Platform login](https://docs.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad) |
