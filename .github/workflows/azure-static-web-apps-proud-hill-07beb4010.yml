@@ -26,8 +26,7 @@ jobs:
           submodules: true
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: '2.0.5' # Change to exactly your version (this is a bug, no automagic :( ))
-          working-directory: workspace/conduit/
+          flutter-version: '2.1.0' # Change to exactly your version (this is a bug, no automagic :( ))
       - run: ls
         working-directory: workspace/conduit/
       - run: flutter pub get
