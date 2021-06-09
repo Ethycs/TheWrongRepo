@@ -24,6 +24,7 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           flutter-version: '2.0.5' # Change to exactly your version (this is a bug, no automagic :( ))
+      - run: ls
       - run: flutter pub get
       - run: flutter test
       #- run: flutter build web
