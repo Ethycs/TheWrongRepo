@@ -31,8 +31,8 @@ jobs:
         working-directory: workspace/conduit/
       - run: flutter pub get
         working-directory: workspace/conduit/
-      - run: flutter test
-        working-directory: workspace/conduit/
+      # - run: flutter test
+      #   working-directory: workspace/conduit/
       #- run: flutter build web
       - name: Build And Deploy
         id: builddeploy

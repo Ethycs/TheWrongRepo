@@ -26,7 +26,7 @@ dependencies:
   aad_oauth: "^0.2.0"
     
   #flutter_sound: ^7.4.13+3
-  js: any
+  js: ^0.6.2
   http: ^0.12.2
   mp_chart: ^0.3.1
   provider: ^5.0.0

@@ -67,3 +67,6 @@ https://github.com/mhadaily/azure-flutter-web-demo/blob/master/.github/workflows
 https://stackoverflow.com/questions/53857085/change-current-working-directory-in-azure-pipelines
 
 https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions
+
+See here:
+https://stackoverflow.com/questions/66370001/not-found-dartjs-export-dartjs-show-allowinterop-allowinteropcapturethi
