@@ -29,6 +29,8 @@ jobs:
           flutter-version: '2.2.0' # Change to exactly your version (this is a bug, no automagic :( ))
       - run: flutter pub get
         working-directory: workspace/conduit/
+      - run: flutter build web
+        working-directory: workspace/conduit/
       # - run: flutter test
       #   working-directory: workspace/conduit/
       #- run: flutter build web
