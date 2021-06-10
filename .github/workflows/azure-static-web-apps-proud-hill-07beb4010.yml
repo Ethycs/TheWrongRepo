@@ -27,8 +27,6 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           flutter-version: '2.2.0' # Change to exactly your version (this is a bug, no automagic :( ))
-      - run: ls
-        working-directory: workspace/conduit/
       - run: flutter pub get
         working-directory: workspace/conduit/
       # - run: flutter test
@@ -48,6 +46,7 @@ jobs:
           api_location: "api" # Api source code path - optional
           output_location: "build/web" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
+      - run: tree
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
