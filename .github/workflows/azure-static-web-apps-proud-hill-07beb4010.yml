@@ -31,9 +31,6 @@ jobs:
         working-directory: workspace/conduit/
       - run: flutter build web # Adding this works
         working-directory: workspace/conduit/
-      # - run: flutter test
-      #   working-directory: workspace/conduit/
-      #- run: flutter build web
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1

@@ -3,7 +3,8 @@
         {
             "route": "/",
             "allowedRoles": [
-                "authenticated"
+                "authenticated",
+                "anonymous"
             ]
         },
         {
@@ -44,9 +45,6 @@
         "401": {
             "redirect": "/login",
             "statusCode": 302
-        },
-        "403": {
-            "rewrite": "/custom-forbidden-page.html"
         },
         "404": {
             "rewrite": "/404.html"

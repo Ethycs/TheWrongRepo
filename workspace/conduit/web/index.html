@@ -53,7 +53,7 @@
   <script>
 
     var audioContext;
-    var amp; 
+    var amp;
     function logMap(val, inMin, inMax, outMin, outMax) {
       var offset = 0;
       if (inMax === 0 || inMin === 0) {
@@ -129,6 +129,15 @@
       }
 
     }
+
+    async function getUserInfo() {
+      const response = await fetch('/.auth/me');
+      const payload = await response.json();
+      const { clientPrincipal } = payload;
+      return clientPrincipal;
+    }
+
+    console.log(getUserInfo());
 
 
 
