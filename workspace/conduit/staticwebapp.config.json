@@ -51,7 +51,7 @@
         }
     },
     "globalHeaders": {
-        "content-security-policy": "script-src 'self' 'unsafe-inline' blob: 'unsafe-eval' 'wasm-eval' https://unpkg.com/ https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@latest/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js  ; connect-src wss: https:; object-src 'self'; worker-src blob:" 
+        "content-security-policy": "script-src 'self' 'unsafe-inline' blob: 'unsafe-eval' 'wasm-eval' https://unpkg.com/ https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@latest/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js ; connect-src wss: https:; object-src 'self'; worker-src 'self' blob:" 
     },
     "mimeTypes": {
         ".json": "text/json"
