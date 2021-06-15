@@ -36,9 +36,9 @@ class ConduitApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Web App',
+      title: 'Corvox Conduit',
       theme: ThemeData.dark(),
-      home: ConduitHomePage(title: 'Conduit Recorder'),
+      home: ConduitHomePage(title: 'Corvox Conduit'),
     );
   }
 }

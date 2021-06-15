@@ -51,7 +51,7 @@
         }
     },
     "globalHeaders": {
-        "content-security-policy": "script-src https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@latest/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js 'self' ; connect-src wss: https:; default-src https:  'unsafe-eval' 'unsafe-inline' ; object-src 'none'; worker-src 'self'" 
+        "content-security-policy": "script-src 'unsafe-eval' 'unsafe-inline'  https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@latest/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js  ; connect-src wss: https:; default-src https:  ; object-src 'self'; worker-src blob:" 
     },
     "mimeTypes": {
         ".json": "text/json"
