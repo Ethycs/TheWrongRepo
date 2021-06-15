@@ -29,7 +29,7 @@ jobs:
           flutter-version: '2.2.0' # Change to exactly your version (this is a bug, no automagic :( ))
       - run: flutter pub get
         working-directory: workspace/conduit/
-      - run: flutter build web # Adding this works
+      - run: flutter build web --csp # Adding this works
         working-directory: workspace/conduit/
       - name: Build And Deploy
         id: builddeploy
