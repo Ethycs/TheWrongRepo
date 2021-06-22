@@ -87,6 +87,15 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        actions: <Widget>[
+          TextButton(
+            style: TextButton.styleFrom(
+              textStyle: const TextStyle(fontSize: 20),
+            ),
+            onPressed: null,
+            child: const Text('Login'),
+          )
+        ],
         backgroundColor: kBackgroundColor,
       ),
       backgroundColor: kBackgroundColorDark,
