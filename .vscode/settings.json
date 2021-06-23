@@ -1,5 +1,13 @@
 {
     "staticWebApps.appSubpath": "./",
     "staticWebApps.apiSubpath": "api",
-    "staticWebApps.outputSubpath": "./"
+    "staticWebApps.outputSubpath": "./",
+    "azureFunctions.deploySubpath": "api",
+    "azureFunctions.scmDoBuildDuringDeployment": true,
+    "azureFunctions.pythonVenv": ".venv",
+    "azureFunctions.projectLanguage": "Python",
+    "azureFunctions.projectRuntime": "~3",
+    "debug.internalConsoleOptions": "neverOpen",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true
 }

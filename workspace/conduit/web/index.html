@@ -16,7 +16,7 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description" content="A new way to do dialog">
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -42,11 +42,17 @@
       });
     }
     //var audioContext = new AudioContext({ sampleRate: 16000 });
+    // function blockingToken() {
+    //   response = fetch('/api/HttpSoundToken');
+    //   token = response;
+    //   return token;
+    // } //Totally a hack :C
+    // var firstToken = blockingToken();
   </script>
   <script src="js/p5.min.js" type="application/javascript"></script>
   <script src="js/p5.sound.min.js" type="application/javascript">
   </script>
-  <script type="text/javascript" src="https://alcdn.msauth.net/browser/2.14.2/js/msal-browser.min.js"></script>
+  <!-- <script type="text/javascript" src="https://alcdn.msauth.net/browser/2.14.2/js/msal-browser.min.js"></script> -->
   <script
     src="https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@latest/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js">
     </script>
@@ -98,7 +104,6 @@
         level = 0;
       }
 
-
       // rectangle variables
       var spacing = 10;
       var w = width / (prevLevels.length * spacing);
@@ -114,52 +119,67 @@
 
       // loop through all the previous levels
       for (var i = 0; i < prevLevels.length; i++) {
-
         var x = map(i, prevLevels.length, 0, width / 2, width);
         var h = map(prevLevels[i], 0, 0.5, minHeight, height);
-
         var alphaValue = logMap(i, 0, prevLevels.length, 1, 250);
-
         var hueValue = map(h, minHeight, height, 200, 255);
-
         fill(hueValue, 255, 255, alphaValue);
-
         rect(x, height / 2, w, h);
         rect(width - x, height / 2, w, h);
       }
-
     }
-
+    var clientPrincipal;
     async function getUserInfo() {
       const response = await fetch('/.auth/me');
       const payload = await response.json();
       const { clientPrincipal } = payload;
       return clientPrincipal;
     }
+    // var thenToken;
+    // fetch("/api/HttpSoundToken")
+    //     .then(response => response.text())
+    //     .then((response) => {
+    //         thenToken = response;
+    //         console.log(thenToken)
+    //     })
+    //     .catch(err => console.log(err))
 
-    console.log(getUserInfo());
-
-
-
-    const sdk = window.SpeechSDK;
-    const speechSubscriptionKey = "c54b24d316544bf6816a232061ad1c76";
-    const serviceRegion = "westus";
-    try {
-      speechConfig = sdk.SpeechConfig.fromSubscription(speechSubscriptionKey, serviceRegion);
-    } catch (error) {
-      console.error(error);
+    async function getToken() {
+      response = await fetch('/api/HttpSoundToken');
+      token = await response.text();
+      return token;
     }
+    var speechConfig;
+    const sdk = window.SpeechSDK;
+    const serviceRegion = "westus";
+    getToken().then(token => speechConfig = sdk.SpeechConfig.fromAuthorizationToken(token, serviceRegion))
+    if (clientPrincipal != null) {
 
+
+    }
     var recognizer;
     function listenToVoice() {
 
-      userStartAudio();
+      userStartAudio(); //P5 Audio
       vis_switch = true;
       audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
       //var audioConfig = sdk.AudioConfig.fromStreamInput(audioStream = mic.stream);
-      recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
+      try {//Could be a minor issue with not waiting for callback
+        console.log("Starting Timer")
+        var timerId = setInterval(
+          getToken()
+          .then(token => speechConfig = sdk.SpeechConfig.fromAuthorizationToken(token, serviceRegion))
+          .then(
+            recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig)
+          ),
+          8.5 * 60 * 1000
+        )
+      } catch (error) {
+        console.error(error)
+      }
+      // recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
       try {
-        speechConfig = sdk.SpeechConfig.fromSubscription(speechSubscriptionKey, serviceRegion);
+        // speechConfig = sdk.SpeechConfig.fromSubscription(speechSubscriptionKey, serviceRegion);
         recognizer.recognizing = (s, e) => {
           console.log("INTERMEDIATE RESULT RECEIVED: " + `${e.result.text}`);
         };
