@@ -42,12 +42,6 @@
       });
     }
     //var audioContext = new AudioContext({ sampleRate: 16000 });
-    // function blockingToken() {
-    //   response = fetch('/api/HttpSoundToken');
-    //   token = response;
-    //   return token;
-    // } //Totally a hack :C
-    // var firstToken = blockingToken();
   </script>
   <script src="js/p5.min.js" type="application/javascript"></script>
   <script src="js/p5.sound.min.js" type="application/javascript">
@@ -153,10 +147,6 @@
     const sdk = window.SpeechSDK;
     const serviceRegion = "westus";
     getToken().then(token => speechConfig = sdk.SpeechConfig.fromAuthorizationToken(token, serviceRegion))
-    if (clientPrincipal != null) {
-
-
-    }
     var recognizer;
     function listenToVoice() {
 
@@ -177,9 +167,7 @@
       } catch (error) {
         console.error(error)
       }
-      // recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
       try {
-        // speechConfig = sdk.SpeechConfig.fromSubscription(speechSubscriptionKey, serviceRegion);
         recognizer.recognizing = (s, e) => {
           console.log("INTERMEDIATE RESULT RECEIVED: " + `${e.result.text}`);
         };

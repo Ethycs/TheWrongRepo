@@ -3,7 +3,7 @@ import azure.functions as func
 import requests
 import os
 
-key = os.getenv("OCP-APIM-SUBSCRIPTION")
+key = os.getenv("OCP_APIM_SUBSCRIPTION")
 
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
