@@ -143,6 +143,20 @@
       token = await response.text();
       return token;
     }
+
+    async function postPhrase(phrase) {
+      response = await fetch("/api/postPhrase", {
+        method: "POST",
+        body: JSON.stringify(
+          {
+            timestamp: Date.now(),
+            fragment: String(phrase),
+          }
+        )
+      }
+      )
+    }
+
     var speechConfig;
     const sdk = window.SpeechSDK;
     const serviceRegion = "westus";
@@ -158,10 +172,10 @@
         console.log("Starting Timer")
         var timerId = setInterval(
           getToken()
-          .then(token => speechConfig = sdk.SpeechConfig.fromAuthorizationToken(token, serviceRegion))
-          .then(
-            recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig)
-          ),
+            .then(token => speechConfig = sdk.SpeechConfig.fromAuthorizationToken(token, serviceRegion))
+            .then(
+              recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig)
+            ),
           8.5 * 60 * 1000
         )
       } catch (error) {
