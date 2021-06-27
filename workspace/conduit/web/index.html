@@ -161,6 +161,18 @@
     const sdk = window.SpeechSDK;
     const serviceRegion = "westus";
     getToken().then(token => speechConfig = sdk.SpeechConfig.fromAuthorizationToken(token, serviceRegion))
+    function refreshToken() {
+      try {
+        console.log("Refresh Token")
+        getToken()
+          .then(token => speechConfig = sdk.SpeechConfig.fromAuthorizationToken(token, serviceRegion))
+          .then(
+            recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig)
+          )
+      } catch (error) {
+        console.error(error)
+      }
+    }
     var recognizer;
     function listenToVoice() {
 
@@ -168,18 +180,7 @@
       vis_switch = true;
       audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
       //var audioConfig = sdk.AudioConfig.fromStreamInput(audioStream = mic.stream);
-      function refreshToken() {
-        try {
-          console.log("Refresh Token")
-          getToken()
-            .then(token => speechConfig = sdk.SpeechConfig.fromAuthorizationToken(token, serviceRegion))
-            .then(
-              recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig)
-            )
-        } catch (error) {
-          console.error(error)
-        }
-      }
+
       try {
         recognizer.recognizing = (s, e) => {
           console.log("INTERMEDIATE RESULT RECEIVED: " + `${e.result.text}`);
