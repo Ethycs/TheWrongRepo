@@ -23,7 +23,7 @@ import 'dart:async';
 //import 'dart:io';
 
 import 'app_constants.dart';
-import 'azure_sdk.dart';
+import 'app_ffi_js.dart';
 import 'totem.dart';
 
 void main() {
@@ -70,7 +70,10 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
   void _toggleRecording() {
     //_dataService.isRunning ? _dataService.stop() : _dataService.start();
     _recording = !_recording;
-    _recording ? listenToVoice() : stopListening();
+    var timer = Timer.periodic(new Duration(minutes: 9), (timer) {
+      refreshToken();
+    });
+    _recording ? listenToVoice() : {stopListening(), timer.cancel()};
     setState(() {});
   }
 

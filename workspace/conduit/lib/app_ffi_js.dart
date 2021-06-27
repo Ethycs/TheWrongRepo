@@ -1,5 +1,5 @@
 @JS()
-library speechsdk;
+library app_ffi_js;
 
 import 'package:js/js.dart';
 
@@ -11,3 +11,6 @@ external void stopListening();
 
 @JS('toggleListening')
 external void toggleListening();
+
+@JS('refreshToken')
+external void refreshToken();
