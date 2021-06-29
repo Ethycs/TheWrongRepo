@@ -3,13 +3,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/material.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 //Nominally our Crossplatform Sound
 import 'package:http/http.dart' as http;
-import 'package:js/js.dart';
 // https://pub.dev/packages/retrofit
-import 'package:retrofit/retrofit.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:dio/dio.dart';
 //https://pub.dev/packages/flutter_sound
@@ -17,10 +14,7 @@ import 'package:dio/dio.dart';
 //import 'package:flutter_sound/flutter_sound.dart';
 //import 'package:permission_handler/permission_handler.dart';
 
-//TODO: Retrofit
-
 import 'dart:async';
-//import 'dart:io';
 
 import 'app_constants.dart';
 import 'app_ffi_js.dart';
@@ -70,11 +64,13 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
   void _toggleRecording() {
     //_dataService.isRunning ? _dataService.stop() : _dataService.start();
     _recording = !_recording;
-    var timer = Timer.periodic(new Duration(minutes: 9), (timer) {
+    var _timer = Timer.periodic(new Duration(minutes: 9), (timer) {
       refreshToken();
     });
-    _recording ? listenToVoice() : {stopListening(), timer.cancel()};
-    setState(() {});
+    _recording ? listenToVoice() : {stopListening(), _timer.cancel()};
+    setState(() {
+      _timer = _timer;
+    });
   }
 
   @override
@@ -95,7 +91,10 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
             style: TextButton.styleFrom(
               textStyle: const TextStyle(fontSize: 20),
             ),
-            onPressed: null,
+            onPressed: () {
+              login;
+              print("button pressed");
+            },
             child: const Text('Login'),
           )
         ],

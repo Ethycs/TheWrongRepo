@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'dart:ui' as UI;
-
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
@@ -9,15 +8,16 @@ class Totem extends StatefulWidget {
   _TotemState createState() => _TotemState();
 }
 
+// This widget should manage its own state!
 class _TotemState extends State<Totem> with TickerProviderStateMixin {
-  AnimationController _controller;
+  AnimationController _controller0;
   AnimationController _controller1;
   AnimationController _controller2;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
+    _controller0 = AnimationController(
       vsync: this,
       duration: Duration(seconds: 12),
     );
@@ -29,7 +29,7 @@ class _TotemState extends State<Totem> with TickerProviderStateMixin {
       vsync: this,
       duration: Duration(seconds: 20),
     );
-    _controller.repeat();
+    _controller0.repeat();
     _controller1.repeat();
     _controller2.repeat();
   }
@@ -37,12 +37,12 @@ class _TotemState extends State<Totem> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-        animation: _controller,
+        animation: _controller0,
         builder: (context, snapshot) {
           return Center(
             child: CustomPaint(
               painter: AtomPaint(
-                value: _controller.value,
+                value: _controller0.value,
                 value1: _controller1.value,
                 value2: _controller2.value,
               ),
@@ -118,7 +118,9 @@ class AtomPaint extends CustomPainter {
               ),
               paint);
         }
-      } catch (e) {}
+      } catch (e) {
+        debugPrint("drawAxis Error: $e");
+      }
     }
   }
 

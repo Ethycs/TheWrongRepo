@@ -72,8 +72,9 @@
 
     function setup() {
       getAudioContext().suspend();
-      let cnv = createCanvas(windowWidth, 400); //windowHeigth/ratio
+      let cnv = createCanvas(windowWidth, 250); //windowHeigth/ratio
       cnv.parent('container');
+      cnv.position(0, 50, 'relative')
       noStroke();
       rectMode(CENTER);
       colorMode(HSB);
@@ -86,7 +87,7 @@
     }
 
     function windowResized() {
-      resizeCanvas(windowWidth, 400);
+      resizeCanvas(windowWidth, 250);
     }
 
     function draw() {
@@ -122,13 +123,13 @@
         rect(width - x, height / 2, w, h);
       }
     }
-    var clientPrincipal;
-    async function getUserInfo() {
-      const response = await fetch('/.auth/me');
-      const payload = await response.json();
-      const { clientPrincipal } = payload;
-      return clientPrincipal;
-    }
+    // var clientPrincipal;
+    // async function getUserInfo() {
+    //   const response = await fetch('/.auth/me');
+    //   const payload = await response.json();
+    //   const { clientPrincipal } = payload;
+    //   return clientPrincipal;
+    // }
     // var thenToken;
     // fetch("/api/HttpSoundToken")
     //     .then(response => response.text())
@@ -156,7 +157,10 @@
       }
       )
     }
-
+    function login() {
+        window.location.href="/login";
+    }
+    var recognizer;
     var speechConfig;
     const sdk = window.SpeechSDK;
     const serviceRegion = "westus";
@@ -173,22 +177,21 @@
         console.error(error)
       }
     }
-    var recognizer;
+
     function listenToVoice() {
 
       userStartAudio(); //P5 Audio
       vis_switch = true;
       audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
       //var audioConfig = sdk.AudioConfig.fromStreamInput(audioStream = mic.stream);
-
+      refreshToken()
       try {
         recognizer.recognizing = (s, e) => {
-          console.log("INTERMEDIATE RESULT RECEIVED: " + `${e.result.text}`);
+          console.log("IRR: " + `${e.result.text}`);
           //postPhrase(e.result.text)
         };
         recognizer.recognized = (s, e) => {
-          console.log("TEST", "FINAL RESULT RECEIVED: " + `${e.result.text}`);
-          console.log("TEST", "EVENT:" + `${e}`)
+          console.log("FRR: " + `${e.result.text}`);
           //postPhrase(e)
         };
         recognizer.startContinuousRecognitionAsync(
