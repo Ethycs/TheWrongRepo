@@ -119,7 +119,7 @@ class AtomPaint extends CustomPainter {
               paint);
         }
       } catch (e) {
-        debugPrint("drawAxis Error: $e");
+        // debugPrint("drawAxis Error: $e");
       }
     }
   }
