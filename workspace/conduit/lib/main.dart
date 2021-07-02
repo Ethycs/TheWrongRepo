@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
-import 'package:dio/dio.dart';
 
 import 'dart:async';
 
@@ -12,7 +11,7 @@ import 'totem.dart';
 
 void main() {
   //setupServiceLocator();
-  fluxState();
+  // fluxState();
   runApp(ConduitApp());
 }
 

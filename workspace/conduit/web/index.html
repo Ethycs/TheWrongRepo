@@ -125,22 +125,6 @@
         rect(width - x, height / 2, w, h);
       }
     }
-    // var clientPrincipal;
-    // async function getUserInfo() {
-    //   const response = await fetch('/.auth/me');
-    //   const payload = await response.json();
-    //   const { clientPrincipal } = payload;
-    //   return clientPrincipal;
-    // }
-    // var thenToken;
-    // fetch("/api/HttpSoundToken")
-    //     .then(response => response.text())
-    //     .then((response) => {
-    //         thenToken = response;
-    //         console.log(thenToken)
-    //     })
-    //     .catch(err => console.log(err))
-
     async function getToken() {
       response = await fetch('/api/HttpSoundToken');
       token = await response.text();
@@ -160,7 +144,7 @@
       )
     }
     function login() {
-        window.location.href="/login";
+      window.location.href = "/login";
     }
     var recognizer;
     var speechConfig;
@@ -230,7 +214,7 @@
     }
   </script>
 
-  <div id="container" style="position:absolute; z-index: 100;text-align:center;"></div>
+  <div id="container" style="position:absolute; text-align:center;"></div>
 </body>
 
 </html>
