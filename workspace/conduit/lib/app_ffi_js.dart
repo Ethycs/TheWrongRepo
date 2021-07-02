@@ -1,7 +1,6 @@
 @JS()
 library app_ffi_js;
 
-import 'package:flutter/material.dart';
 import 'package:js/js.dart';
 
 @JS('listenToVoice')
@@ -19,13 +18,27 @@ external void refreshToken();
 @JS('login')
 external void login();
 
-@JS('dialogState')
-external set _dialogState(void Function() f);
+@JS('fluxState')
+external set _fluxState(void Function() f); //JsObject diff
 
-void dialogState() {
-  print("We Got Dialog!");
+void fluxState() {
+  print("Dialog!");
+}
+
+/// Allows assigning a function to be callable from `window.functionName()`
+@JS('functionName')
+external set _functionName(void Function() f);
+
+/// Allows calling the assigned function from Dart as well.
+@JS()
+external void functionName();
+
+void _someDartFunction() {
+  print('Hello from Dart!');
 }
 
 void main() {
-  _dialogState = allowInterop(dialogState);
+  _fluxState = allowInterop(fluxState);
+  _functionName = allowInterop(_someDartFunction);
+  // JavaScript code may now call `functionName()` or `window.functionName()`.
 }

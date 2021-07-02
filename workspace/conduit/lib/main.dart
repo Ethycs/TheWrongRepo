@@ -2,17 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
-import 'package:url_launcher/url_launcher.dart';
-//Nominally our Crossplatform Sound
-import 'package:http/http.dart' as http;
-// https://pub.dev/packages/retrofit
-import 'package:json_annotation/json_annotation.dart';
 import 'package:dio/dio.dart';
-//https://pub.dev/packages/flutter_sound
-//NO PCM WAV AZURE SDK on WEB >:(
-//import 'package:flutter_sound/flutter_sound.dart';
-//import 'package:permission_handler/permission_handler.dart';
 
 import 'dart:async';
 
@@ -22,6 +12,7 @@ import 'totem.dart';
 
 void main() {
   //setupServiceLocator();
+  fluxState();
   runApp(ConduitApp());
 }
 
@@ -39,8 +30,6 @@ class ConduitApp extends StatelessWidget {
 
 class ConduitHomePage extends StatefulWidget {
   ConduitHomePage({Key key, this.title}) : super(key: key);
-  static const platform =
-      const MethodChannel('com.android.section/cognitiveservices');
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
   // how it looks.
@@ -77,10 +66,6 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
