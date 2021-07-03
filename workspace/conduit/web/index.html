@@ -137,7 +137,7 @@
         body: JSON.stringify(
           {
             timestamp: Date.now(),
-            fragment: String(phrase),
+            fragment: phrase,
           }
         )
       }
@@ -179,7 +179,6 @@
           console.log(diff(STM, NOW))
           STM = NOW
           fluxState()
-          postPhrase(NOW)
         };
         recognizer.recognized = (s, e) => {
           console.log("FRR: " + `${e.result.text}`);

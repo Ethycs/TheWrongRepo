@@ -20,13 +20,14 @@ container = database.get_container_client(
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
     header = req.headers['x-ms-client-principal']
+    message = req.get_json()
     client_json = base64.b64decode(header)
     client_str = client_json.decode('ascii')
     principal_dict = json.loads(client_str) # Parsing the client header
     user_id = principal_dict['userId']
-    fragment = req.params.get('fragment')
-    timestamp = req.params.get('timestamp')
-    if not user_id or fragment or timestamp:
+    fragment = message.get('fragment')
+    timestamp = message.get('timestamp')
+    if not (user_id or fragment or timestamp):
         return func.HttpResponse(
             status_code=400
         )
@@ -37,7 +38,6 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         'timestamp': timestamp,
         'fragment': fragment
     }
-
     container.create_item(
         dialog_fragment
     )
