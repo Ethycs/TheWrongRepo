@@ -9,9 +9,11 @@ import 'app_constants.dart';
 import 'app_ffi_js.dart';
 import 'totem.dart';
 
+Stream<String> fluxSream = fluxController.stream;
+
 void main() {
-  //setupServiceLocator();
-  // fluxState();
+  appInterops();
+
   runApp(ConduitApp());
 }
 

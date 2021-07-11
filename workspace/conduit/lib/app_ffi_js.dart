@@ -1,6 +1,10 @@
 @JS()
 library app_ffi_js;
 
+import 'dart:async';
+import 'dart:js';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:js/js.dart';
 
 @JS('listenToVoice')
@@ -15,30 +19,35 @@ external void toggleListening();
 @JS('refreshToken')
 external void refreshToken();
 
+StreamController<String> fluxController = StreamController<String>();
+
+//https://github.com/flutter/flutter/issues/29958
+//https://pub.dev/packages/listenable_stream
+//https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html
+void _dialogState(List<dynamic> input) {
+  var stringed = input;
+  for (String state in stringed) {
+    fluxController.add(state);
+  }
+  print("Dialog! $stringed");
+}
+
 @JS('login')
 external void login();
 
 @JS('fluxState')
-external set _fluxState(void Function() f); //JsObject diff
+external set _fluxState(void Function(List<dynamic> input) f); //JsObject diff
 
-void fluxState() {
-  print("Dialog!");
+Stream<String> stateQueue(List<dynamic> state) async* {
+  for (String item in state) {
+    yield item;
+  }
 }
 
-/// Allows assigning a function to be callable from `window.functionName()`
-@JS('functionName')
-external set _functionName(void Function() f);
-
-/// Allows calling the assigned function from Dart as well.
 @JS()
-external void functionName();
+external void fluxState();
 
-void _someDartFunction() {
-  print('Hello from Dart!');
-}
-
-void main() {
-  _fluxState = allowInterop(fluxState);
-  _functionName = allowInterop(_someDartFunction);
+void appInterops() {
+  _fluxState = allowInterop(_dialogState);
   // JavaScript code may now call `functionName()` or `window.functionName()`.
 }
