@@ -176,13 +176,12 @@
         recognizer.recognizing = (s, e) => {
           console.log("IRR: " + `${e.result.text}`);
           NOW = e.result.text
-          // diff(STM, NOW)
-          STM = NOW
           input  = diff(STM, NOW)
-          input.map(function(elem ) {
+          STM = NOW
+          parsed = input.map(function(elem ) {
             return Object.values(elem).toString()
           })
-          fluxState(JSON.stringify(input))
+          fluxState(parsed)
         };
         recognizer.recognized = (s, e) => {
           console.log("FRR: " + `${e.result.text}`);
