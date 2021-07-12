@@ -9,7 +9,7 @@ import 'app_constants.dart';
 import 'app_ffi_js.dart';
 import 'totem.dart';
 
-Stream<String> fluxSream = fluxController.stream;
+Stream<String> fluxStream = fluxController.stream;
 
 void main() {
   appInterops();
@@ -106,7 +106,9 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
                 alignment: Alignment.center,
                 fit: StackFit.loose,
                 children: <Widget>[
-                  Totem(),
+                  Totem(
+                    stream: fluxStream,
+                  ),
                   CustomPaint(
                     painter: ButtonRing(Colors.black, 100.0),
                     child: RecordingButton(_toggleRecording),

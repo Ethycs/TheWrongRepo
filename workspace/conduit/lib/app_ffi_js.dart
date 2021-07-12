@@ -3,8 +3,6 @@ library app_ffi_js;
 
 import 'dart:async';
 import 'dart:js';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:js/js.dart';
 
 @JS('listenToVoice')
@@ -29,7 +27,7 @@ void _dialogState(List<dynamic> input) {
   for (String state in stringed) {
     fluxController.add(state);
   }
-  print("Dialog! $stringed");
+  // print("Dialog! $stringed");
 }
 
 @JS('login')

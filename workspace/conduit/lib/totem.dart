@@ -4,12 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
 class Totem extends StatefulWidget {
+  final Stream<String> stream;
+  Totem({this.stream});
   @override
   _TotemState createState() => _TotemState();
 }
 
 // This widget should manage its own state!
 class _TotemState extends State<Totem> with TickerProviderStateMixin {
+  //https://api.flutter.dev/flutter/animation/AnimationController-class.html
   AnimationController _controller0;
   AnimationController _controller1;
   AnimationController _controller2;
@@ -36,19 +39,94 @@ class _TotemState extends State<Totem> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-        animation: _controller0,
-        builder: (context, snapshot) {
-          return Center(
-            child: CustomPaint(
-              painter: AtomPaint(
-                value: _controller0.value,
-                value1: _controller1.value,
-                value2: _controller2.value,
-              ),
-            ),
-          );
+    List<dynamic> _totemState(String state) {
+      // WASM Candidate
+      List<String> functional = state.split(",");
+      int polarity = functional.indexOf("true");
+      // -1: 0 polarity
+      //  1: 1 polarity
+      //  2:-1 polarity
+      int length =
+          int.parse(functional[0]); //For performance or additional behavior
+      functional = functional.sublist(3);
+      List<int> totemState = functional.map((e) => e.codeUnitAt(0)).toList();
+
+      // Normalize Codeblock
+      final lower = totemState.reduce(min);
+      final upper = totemState.reduce(max);
+      final List<double> normalized = [];
+      totemState.forEach((element) => element < 0.5
+          ? normalized.add(-(element / lower))
+          : normalized.add(element / upper));
+
+      print("$totemState => $normalized");
+      // normalized.add(polarity.toDouble());
+      return [
+        polarity,
+        length,
+        normalized,
+      ];
+    }
+
+    //https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html
+    return StreamBuilder<String>(
+        stream: widget.stream,
+        builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+          var state = '';
+          if (snapshot.hasData) {
+            state = snapshot.data;
+            List<dynamic> dialState = _totemState(state);
+            List<AnimationController> controller = [
+              _controller0,
+              _controller1,
+              _controller2
+            ];
+            Iterator<double> dialIn = dialState[2].iterator;
+            Duration loopTime = Duration(milliseconds: 60) ~/ dialState[1];
+            for (double turn in dialState.skip(2)) {
+              Iterator<AnimationController> controllers = controller.iterator;
+              while (dialIn.moveNext() && controllers.moveNext()) {
+                // determine polarity based on mapping
+                // Consider Curves(Cubic()), TransitionBuilder
+                switch (dialState[0]) {
+                  case 0:
+                    // Neutral
+                    controllers.current.forward(from: dialIn.current);
+                    break;
+                  case 1:
+                    // Positive
+                    controllers.current
+                        .animateTo(dialIn.current, duration: loopTime);
+                    break;
+                  case 2:
+                    // Negative
+                    controllers.current
+                        .animateBack(dialIn.current, duration: loopTime);
+                    break;
+                  default:
+                }
+              }
+              if (!dialIn.moveNext()) {
+                break;
+              }
+            }
+          }
+          //https://api.flutter.dev/flutter/animation/AnimationController-class.html
+          return AnimatedBuilder(
+              animation: _controller0,
+              builder: (context, child) {
+                return Center(
+                  child: CustomPaint(
+                    painter: AtomPaint(
+                      value: _controller0.value,
+                      value1: _controller1.value,
+                      value2: _controller2.value,
+                    ),
+                  ),
+                );
+              });
         });
+
     // floatingActionButton: FloatingActionButton(
     //   child: Icon(Icons.play_arrow),
     //   onPressed: () {
