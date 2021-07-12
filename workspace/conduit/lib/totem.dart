@@ -109,8 +109,14 @@ class _TotemState extends State<Totem> with TickerProviderStateMixin {
                 break;
               }
             }
+            for (AnimationController c in controller) {
+              if (c.isCompleted) {
+                c.repeat();
+              }
+            }
+
             // controller.forEach((element) {
-            //   element.repeat();
+            //   element.reset();
             // });
           }
           //https://api.flutter.dev/flutter/animation/AnimationController-class.html
