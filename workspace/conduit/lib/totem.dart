@@ -82,7 +82,7 @@ class _TotemState extends State<Totem> with TickerProviderStateMixin {
               _controller2
             ];
             Iterator<double> dialIn = dialState[2].iterator;
-            Duration loopTime = Duration(milliseconds: 60) ~/ dialState[1];
+            Duration loopTime = Duration(seconds: 5) ~/ dialState[1];
             for (double turn in dialState.skip(2)) {
               Iterator<AnimationController> controllers = controller.iterator;
               while (dialIn.moveNext() && controllers.moveNext()) {
@@ -103,13 +103,15 @@ class _TotemState extends State<Totem> with TickerProviderStateMixin {
                     controllers.current
                         .animateBack(dialIn.current, duration: loopTime);
                     break;
-                  default:
                 }
               }
               if (!dialIn.moveNext()) {
                 break;
               }
             }
+            // controller.forEach((element) {
+            //   element.repeat();
+            // });
           }
           //https://api.flutter.dev/flutter/animation/AnimationController-class.html
           return AnimatedBuilder(
