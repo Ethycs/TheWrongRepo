@@ -59,7 +59,7 @@ class _TotemState extends State<Totem> with TickerProviderStateMixin {
           ? normalized.add(-(element / lower))
           : normalized.add(element / upper));
 
-      print("$totemState => $normalized");
+      // print("$totemState => $normalized");
       // normalized.add(polarity.toDouble());
       return [
         polarity,
@@ -83,7 +83,7 @@ class _TotemState extends State<Totem> with TickerProviderStateMixin {
             ];
             Iterator<double> dialIn = dialState[2].iterator;
             Duration loopTime = Duration(seconds: 5) ~/ dialState[1];
-            for (double turn in dialState.skip(2)) {
+            for (double turn in dialState[2]) {
               Iterator<AnimationController> controllers = controller.iterator;
               while (dialIn.moveNext() && controllers.moveNext()) {
                 // determine polarity based on mapping
@@ -111,6 +111,7 @@ class _TotemState extends State<Totem> with TickerProviderStateMixin {
             }
             for (AnimationController c in controller) {
               if (c.isCompleted) {
+                c.reset();
                 c.repeat();
               }
             }
