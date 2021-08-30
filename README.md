@@ -1,7 +1,7 @@
 # flutter_dev / Corvox Widget
-
-author: Jasper Yao
-author: Cezary Żelisko
+ author: Jasper Yao
+ 
+ author: Cezary Żelisko
 
 ## About
 The repository contains a workspace adapted to the development of applications using the Flutter framework. The workspace with all necessary dependencies is organized in a Docker container.
