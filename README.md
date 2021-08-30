@@ -1,5 +1,6 @@
-# flutter_dev
+# flutter_dev / Corvox Widget
 
+author: Jasper Yao
 author: Cezary Żelisko
 
 ## About
