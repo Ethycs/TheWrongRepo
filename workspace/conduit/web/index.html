@@ -125,6 +125,15 @@
         rect(width - x, height / 2, w, h);
       }
     }
+
+    function demo(str) {
+      input = diff(str)
+      parsed = input.map(function(elem ) {
+            return Object.values(elem).toString()
+          })
+      fluxState(parsed)
+    }
+
     async function getToken() {
       response = await fetch('/api/HttpSoundToken');
       token = await response.text();
