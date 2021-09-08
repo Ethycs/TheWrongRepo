@@ -1,0 +1,10 @@
+{
+  "spellcheck": true,
+  "strictLineBreaks": true,
+  "showFrontmatter": true,
+  "spellcheckDictionary": [
+    "crypto"
+  ],
+  "promptDelete": false,
+  "alwaysUpdateLinks": true
+}

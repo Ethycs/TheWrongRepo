@@ -1,0 +1,137 @@
+{
+  "main": {
+    "id": "0f8763e8508519f6",
+    "type": "split",
+    "children": [
+      {
+        "id": "42cd35f901476ddd",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "001 Corvox-601-Main.md",
+            "mode": "source"
+          }
+        },
+        "group": "d23eff42de34bbc2"
+      },
+      {
+        "id": "8796abc4d9988816",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "001 Corvox-601-Main.md",
+            "mode": "preview"
+          }
+        },
+        "group": "d23eff42de34bbc2"
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0fcebe073a2762b0",
+    "type": "split",
+    "children": [
+      {
+        "id": "94bed762beca56a9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "899361e692add6c8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "a4d91f0b5ec1d1a9",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "d6c86d4e2dd22774",
+    "type": "split",
+    "children": [
+      {
+        "id": "0a0d0d90171969ce",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b6bdfea0e5ff40f7",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "001 Corvox-601-Main.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "7dfa481091880701",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "001 Corvox-601-Main.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "841d3c756da2d90a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "active": "42cd35f901476ddd",
+  "lastOpenFiles": [
+    "001 Corvox-601-Main.md",
+    "z Notes Publish.md",
+    "Untitled.md",
+    "Context1 - event.md",
+    "Context2 - findings.md",
+    "FAQ-Assumed.md",
+    "aKey1 - Impact Investing.md",
+    "006 Corvox-601-Tab-Sources.md",
+    "005 Corvox-601-Tab-Pushing-Now.md",
+    "004 Corvox-601-Tab-Integrated.md"
+  ]
+}
