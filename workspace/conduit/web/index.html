@@ -92,39 +92,39 @@
       resizeCanvas(windowWidth, 250);
     }
 
-    function draw() {
-      clear();
-      var level;
-      if (vis_switch == true) {
-        level = amplitude.getLevel();
-      } else {
-        level = 0;
-      }
+    // function draw() {
+    //   clear();
+    //   var level;
+    //   if (vis_switch == true) {
+    //     level = amplitude.getLevel();
+    //   } else {
+    //     level = 0;
+    //   }
 
-      // rectangle variables
-      var spacing = 10;
-      var w = width / (prevLevels.length * spacing);
+    //   // rectangle variables
+    //   var spacing = 10;
+    //   var w = width / (prevLevels.length * spacing);
 
-      var minHeight = 2;
-      var roundness = 20;
+    //   var minHeight = 2;
+    //   var roundness = 20;
 
-      // add new level to end of array
-      prevLevels.push(level);
+    //   // add new level to end of array
+    //   prevLevels.push(level);
 
-      // remove first item in array
-      prevLevels.splice(0, 1);
+    //   // remove first item in array
+    //   prevLevels.splice(0, 1);
 
-      // loop through all the previous levels
-      for (var i = 0; i < prevLevels.length; i++) {
-        var x = map(i, prevLevels.length, 0, width / 2, width);
-        var h = map(prevLevels[i], 0, 0.5, minHeight, height);
-        var alphaValue = logMap(i, 0, prevLevels.length, 1, 250);
-        var hueValue = map(h, minHeight, height, 200, 255);
-        fill(hueValue, 255, 255, alphaValue);
-        rect(x, height / 2, w, h);
-        rect(width - x, height / 2, w, h);
-      }
-    }
+    //   // loop through all the previous levels
+    //   for (var i = 0; i < prevLevels.length; i++) {
+    //     var x = map(i, prevLevels.length, 0, width / 2, width);
+    //     var h = map(prevLevels[i], 0, 0.5, minHeight, height);
+    //     var alphaValue = logMap(i, 0, prevLevels.length, 1, 250);
+    //     var hueValue = map(h, minHeight, height, 200, 255);
+    //     fill(hueValue, 255, 255, alphaValue);
+    //     rect(x, height / 2, w, h);
+    //     rect(width - x, height / 2, w, h);
+    //   }
+    // }
 
     function demo(str) {
       input = diff(str)
@@ -176,6 +176,7 @@
     var NOW = ''
     function listenToVoice() {
 
+      // Needs to be in the right order or it brakes
       userStartAudio(); //P5 Audio
       vis_switch = true;
       audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
@@ -225,7 +226,7 @@
     }
   </script>
 
-  <div id="container" style="position:absolute; text-align:center;"></div>
+  
 </body>
-
+<!-- <div id="container" style="position:absolute; text-align:center;"></div> -->
 </html>

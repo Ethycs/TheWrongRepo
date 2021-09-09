@@ -36,7 +36,13 @@ After successful installation you are able to start developing application. In o
 
 Next time you want to open the folder for the app development you can select it from the _containers_ section of the _Remote Explorer_ left side menu.
 
+##
 
+My setup runs two machines for debugging. An active container instance is running a debugging session to the Host OS browser Chrome (with an activated Flutter Debugging extension). On my Host OS I'm also running debugging from the uncontainered VSCODE instance. I use the Azure plugin context debugging from the /api folder.
+
+To test the api's successfully I run swa with arguments. I run another swa instance from a new terminal session to host the web app with `swa start .` and the apis with either the Azure plugin or `swa -api=<remote api>`. I've got a lot of options. Locally thats `swa start --port 8080 --api http://localhost:7071`
+
+Runtime
 
 ## What's Going on Here
 
