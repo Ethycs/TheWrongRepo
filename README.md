@@ -23,6 +23,8 @@ The following link was used as a source: https://docs.microsoft.com/en-us/azure/
 * from the opened dialog navigate to the cloned repository, i.e. _flutter_dev_,
 * now you have to wait until the building process is finished. It can take a couple of minutes. You can follow it step by step by clicking _details_ in the dialog that appears in the bottom right corner of the window.
 
+In particular, you need to install WSL2 which at time of writing is not part of standard windows installation. It may be necessary to install Ubuntu or other distribution in the course of enabling WSL from standard windows options. Please make sure to install Ubuntu or another distribution AFTER you have fully updated to WSL2 despite all requests to the contrary. In the case you have made mistake and are seeing wls2 related errors. The first thing to check is the wslconfig /v and wslconfig /s tool whereas as the wls instructions may be unclear. 
+
 You can check whether everything is set up correctly by opening new terminal window (`Terminal -> New Terminal` from the window menu) and typing: `flutter doctor`. You should see the output with checkmarks next to the first two options (Flutter SDK and Android SDK). Android Studio will be marked with `!` but it is ok - it won't be necessary. Last option refers to the connected devices and may be either checked or not depending on whether you have connected an Android device to your computer before.
 
 ## Application development
