@@ -1,6 +1,6 @@
 Africa is our focus (but all lean economies are our goal)  
-The opportunities are in the basics such as Food, Energy, Medicine and Transportation   
-Climate crisis is real   
+Opportunities are in Food, Energy, Medicine and Transport   
+6% ROI is min bar
 Diversity is survival (in nature as well as in economics)
 Impact Investment   
 Data is the real product (abundance mindset makes this true)  

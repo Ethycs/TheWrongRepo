@@ -29,3 +29,11 @@ People'
 <marker style="background-color: green">example test</maker>
 
 <mark style="color: white"><marker style="background-color:slategray">this is highlight One</marker></mark>
+
+Publish plugin 
+*    Page preview plugin
+*    https://help.obsidian.md/Plugins/Page+preview
+
+DIY Publishing 
+* How to implement page preview
+* How to self publish 

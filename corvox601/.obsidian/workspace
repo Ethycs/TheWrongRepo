@@ -4,7 +4,7 @@
     "type": "split",
     "children": [
       {
-        "id": "42cd35f901476ddd",
+        "id": "be54b9e1fa5b07d7",
         "type": "leaf",
         "state": {
           "type": "markdown",
@@ -12,11 +12,10 @@
             "file": "001 Corvox-601-Main.md",
             "mode": "source"
           }
-        },
-        "group": "d23eff42de34bbc2"
+        }
       },
       {
-        "id": "8796abc4d9988816",
+        "id": "2fd5752f49530daf",
         "type": "leaf",
         "state": {
           "type": "markdown",
@@ -24,8 +23,7 @@
             "file": "001 Corvox-601-Main.md",
             "mode": "preview"
           }
-        },
-        "group": "d23eff42de34bbc2"
+        }
       }
     ],
     "direction": "vertical"
@@ -119,19 +117,20 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
-  "active": "42cd35f901476ddd",
+  "active": "2fd5752f49530daf",
   "lastOpenFiles": [
     "001 Corvox-601-Main.md",
+    "README.md",
+    "z Code Snipets.md",
     "z Notes Publish.md",
-    "Untitled.md",
-    "Context1 - event.md",
-    "Context2 - findings.md",
-    "FAQ-Assumed.md",
-    "aKey1 - Impact Investing.md",
-    "006 Corvox-601-Tab-Sources.md",
-    "005 Corvox-601-Tab-Pushing-Now.md",
-    "004 Corvox-601-Tab-Integrated.md"
+    "annotations.png",
+    "site-overview.png",
+    "site-callout.png",
+    "001a-impact-investing.md",
+    "002 Corvox-601-Tab-Assumed.md",
+    "003 Corvox-601-Tab-DeadEnds.md"
   ]
 }

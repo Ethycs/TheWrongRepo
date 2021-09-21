@@ -3,7 +3,8 @@
   "strictLineBreaks": true,
   "showFrontmatter": true,
   "spellcheckDictionary": [
-    "crypto"
+    "crypto",
+    "Blockchain"
   ],
   "promptDelete": false,
   "alwaysUpdateLinks": true

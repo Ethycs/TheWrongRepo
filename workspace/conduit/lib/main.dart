@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
@@ -5,7 +7,6 @@ import 'package:flutter/rendering.dart';
 import 'dart:async';
 import 'package:easy_web_view/easy_web_view.dart';
 import 'package:bottom_bar_with_sheet/bottom_bar_with_sheet.dart';
-
 import 'app_constants.dart';
 import 'app_ffi_js.dart';
 import 'totem.dart';
@@ -88,31 +89,41 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
       ),
       backgroundColor: Color.fromRGBO(42, 42, 42, 1),
       body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Column(
               mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                EasyWebView(
-                  src:
-                      'https://publish.obsidian.md/corvox601/001+Corvox-601-Main',
-                  onLoaded: () {
-                    // You could choose to edit the html layout this way
-                  },
+                Container(
+                  padding: const EdgeInsets.all(8),
                   height: 800,
-                  width: 800,
+                  width: 900,
+                  child: EasyWebView(
+                    src:
+                        'https://publish.obsidian.md/corvox601/001+Corvox-601-Main',
+                    onLoaded: () {
+                      // You could choose to edit the html layout this way
+                    },
+                    height: 800,
+                    width: 800,
+                  ),
                 ),
               ]),
           Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
                 padding: const EdgeInsets.all(8),
+                height: 8,
+                width: 166,
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
                 child: SizedBox(
-                  // This is Recording Button Code, don't edit in here.
+//                    This is Recording Button Code, don't edit in here.
                   height: 150,
                   width: 150,
                   child: Stack(
@@ -132,43 +143,73 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
                 ),
               ),
               Container(
-                  height: 800,
-                  width: 400,
+                  height: 750,
+                  width: 250,
                   child: GridView.count(
                     primary: false,
-                    padding: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(8),
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
                     crossAxisCount: 2,
                     children: <Widget>[
                       Container(
-                        padding: const EdgeInsets.all(8),
-                        child: const Text("He'd have you all unravel at the"),
-                        // color: Colors.black,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(8),
-                        child: const Text('Heed not the rabble'),
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('Img-Aaron.jpg'),
                         color: Colors.black,
                       ),
                       Container(
-                        padding: const EdgeInsets.all(8),
-                        child: const Text('Sound of screams but the'),
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('Img-Alex.jpg'),
                         color: Colors.black,
                       ),
                       Container(
-                        padding: const EdgeInsets.all(8),
-                        child: const Text('Who scream'),
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('Img-Ander.jpg'),
                         color: Colors.black,
                       ),
                       Container(
-                        padding: const EdgeInsets.all(8),
-                        child: const Text('Revolution is coming...'),
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('Img-Fortunato.jpg'),
                         color: Colors.black,
                       ),
                       Container(
-                        padding: const EdgeInsets.all(8),
-                        child: const Text('Revolution, they...'),
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('Img-Frank.jpg'),
+                        color: Colors.black,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('Img-Hans.jpg'),
+                        color: Colors.black,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('Img-Luni.jpg'),
+                        color: Colors.black,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('Img-Monkia.jpg'),
+                        color: Colors.black,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('Img-Sanjay.jpg'),
+                        color: Colors.black,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('Img-Sharon.jpg'),
+                        color: Colors.black,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('Img-Tawanda.jpg'),
+                        color: Colors.black,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('Img-Michael.jpg'),
                         color: Color.fromRGBO(42, 42, 42, 1),
                       ),
                     ],
@@ -196,14 +237,11 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
         ),
         onSelectItem: (index) => print('item $index was pressed'),
         items: [
+          BottomBarWithSheetItem(label: "EULA", icon: Icons.people),
+          BottomBarWithSheetItem(label: "Damnit Michael", icon: Icons.people),
+          BottomBarWithSheetItem(label: "Butlerian Jihad", icon: Icons.people),
           BottomBarWithSheetItem(
-              label: "How to Win Investors", icon: Icons.people),
-          BottomBarWithSheetItem(
-              label: "Damnit Michael", icon: Icons.shopping_cart),
-          BottomBarWithSheetItem(
-              label: "Butlerian Jihad", icon: Icons.settings),
-          BottomBarWithSheetItem(
-              label: "Wealth Tax Funded Single Payer", icon: Icons.favorite),
+              label: "Special thanks to...", icon: Icons.favorite),
         ],
       ),
     );
