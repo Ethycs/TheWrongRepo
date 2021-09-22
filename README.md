@@ -3,9 +3,11 @@
  author: Jasper Yao
  
  author: Cezary Żelisko
-
+ 
+ 
 ## About
 The repository contains a workspace adapted to the development of applications using the Flutter framework. The workspace with all necessary dependencies is organized in a Docker container.
+
 
 It uses the _Remote Development_ extension from the Visual Studio Code that allows you to open any folder in the container and work with it in the IDE that is installed on the host machine.
 
@@ -57,6 +59,13 @@ Azure App Service provides built-in authentication and authorization capabilitie
 | Provider                                                     | Sign-in endpoint   | How-To guidance                                              |
 | :----------------------------------------------------------- | :----------------- | :----------------------------------------------------------- |
 | [Microsoft Identity Platform](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis) | `/.auth/login/aad` | [App Service Microsoft Identity Platform login](https://docs.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad) |
+
+
+The following images are provided as reference and represent the architecture of the system in it's initial design:
+![img](Arch_1.png)
+![img](Arch_2.png)
+![img](Arch_3.png)
+
 
 
 We also use a github action specified
