@@ -173,9 +173,9 @@ class AtomPaint extends CustomPainter {
     drawAxis(value, canvas, 60, Paint()..color = Colors.white);
     drawAxis(value1, canvas, 100, Paint()..color = Colors.white);
     drawAxis(value2, canvas, 140, Paint()..color = Colors.white);
-    drawAxis(value, canvas, 180, Paint()..color = Colors.white);
-    drawAxis(value1, canvas, 220, Paint()..color = Colors.white);
-    drawAxis(value2, canvas, 260, Paint()..color = Colors.white);
+    //drawAxis(value, canvas, 180, Paint()..color = Colors.white);
+    //drawAxis(value1, canvas, 220, Paint()..color = Colors.white);
+    //drawAxis(value2, canvas, 260, Paint()..color = Colors.white);
   }
 
   drawAxis(double value, Canvas canvas, double radius, Paint paint) {
