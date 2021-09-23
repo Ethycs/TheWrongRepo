@@ -122,8 +122,8 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
               ),
               Container(
                 padding: const EdgeInsets.all(8),
-                width: 250,
-                height: 250,
+                // width: 250,
+                // height: 250,
                 child: SizedBox(
 //                    This is Recording Button Code, don't edit in here.
                   height: 150,
