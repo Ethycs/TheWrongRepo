@@ -219,31 +219,31 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
           Container()
         ],
       ),
-      bottomNavigationBar: BottomBarWithSheet(
-        selectedIndex: 0,
-        sheetChild: Center(child: Text("Place for other content")),
-        bottomBarTheme: BottomBarTheme(
-          mainButtonPosition: MainButtonPosition.middle,
-          selectedItemIconColor: const Color(0xFF2B65E3),
-        ),
-        mainActionButtonTheme: MainActionButtonTheme(
-          size: 60,
-          color: const Color(0xFF2B65E3),
-          icon: Icon(
-            Icons.add,
-            color: Colors.white,
-            size: 35,
-          ),
-        ),
-        onSelectItem: (index) => print('item $index was pressed'),
-        items: [
-          BottomBarWithSheetItem(label: "EULA", icon: Icons.people),
-          BottomBarWithSheetItem(label: "Damnit Michael", icon: Icons.people),
-          BottomBarWithSheetItem(label: "Butlerian Jihad", icon: Icons.people),
-          BottomBarWithSheetItem(
-              label: "Special thanks to...", icon: Icons.favorite),
-        ],
-      ),
+      // bottomNavigationBar: BottomBarWithSheet(
+      //   selectedIndex: 0,
+      //   sheetChild: Center(child: Text("Place for other content")),
+      //   bottomBarTheme: BottomBarTheme(
+      //     mainButtonPosition: MainButtonPosition.middle,
+      //     selectedItemIconColor: const Color(0xFF2B65E3),
+      //   ),
+      //   mainActionButtonTheme: MainActionButtonTheme(
+      //     size: 60,
+      //     color: const Color(0xFF2B65E3),
+      //     icon: Icon(
+      //       Icons.add,
+      //       color: Colors.white,
+      //       size: 35,
+      //     ),
+      //   ),
+      //   onSelectItem: (index) => print('item $index was pressed'),
+      //   items: [
+      //     BottomBarWithSheetItem(label: "EULA", icon: Icons.people),
+      //     BottomBarWithSheetItem(label: "Damnit Michael", icon: Icons.people),
+      //     BottomBarWithSheetItem(label: "Bene Gesserit", icon: Icons.people),
+      //     BottomBarWithSheetItem(
+      //         label: "Special thanks to...", icon: Icons.favorite),
+      //   ],
+      // ),
     );
   }
 }
@@ -292,7 +292,7 @@ class _RecordingButtonState extends State<RecordingButton> {
   @override
   void initState() {
     super.initState();
-    color = Colors.red;
+    color = Colors.green;
     borderRadius = 50.0;
     margin = 40;
     box = 40.0;
@@ -312,7 +312,7 @@ class _RecordingButtonState extends State<RecordingButton> {
       duration: Duration(milliseconds: 250),
       decoration: BoxDecoration(
         // You can add a border here!
-        color: Colors.red,
+        color: Colors.green,
         borderRadius: BorderRadius.circular(recording ? borderRadius : 8),
       ),
       child: Material(
