@@ -122,6 +122,8 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
               ),
               Container(
                 padding: const EdgeInsets.all(8),
+                width: 250,
+                height: 250,
                 child: SizedBox(
 //                    This is Recording Button Code, don't edit in here.
                   height: 150,
@@ -154,27 +156,27 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
                     children: <Widget>[
                       Container(
                         padding: const EdgeInsets.all(1),
-                        child: Image.asset('Img-Aaron.jpg'),
+                        child: Image.asset('assets/Img-Aaron.jpg'),
                         color: Colors.black,
                       ),
                       Container(
                         padding: const EdgeInsets.all(1),
-                        child: Image.asset('Img-Alex.jpg'),
+                        child: Image.asset('assets/Img-Alex.jpg'),
                         color: Colors.black,
                       ),
                       Container(
                         padding: const EdgeInsets.all(1),
-                        child: Image.asset('Img-Ander.jpg'),
+                        child: Image.asset('assets/Img-Ander.jpg'),
                         color: Colors.black,
                       ),
                       Container(
                         padding: const EdgeInsets.all(1),
-                        child: Image.asset('Img-Fortunato.jpg'),
+                        child: Image.asset('assets/Img-Fortunato.jpg'),
                         color: Colors.black,
                       ),
                       Container(
                         padding: const EdgeInsets.all(1),
-                        child: Image.asset('Img-Frank.jpg'),
+                        child: Image.asset('assets/Img-Frank.jpg'),
                         color: Colors.black,
                       ),
                       Container(
