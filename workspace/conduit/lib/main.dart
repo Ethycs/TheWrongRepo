@@ -212,7 +212,7 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
                       Container(
                         padding: const EdgeInsets.all(1),
                         child: Image.asset('assets/Img-Michael.jpg'),
-                        color: Color.black,
+                        color: Color.fromRGBO(42, 42, 42, 1),
                       ),
                     ],
                   ))
