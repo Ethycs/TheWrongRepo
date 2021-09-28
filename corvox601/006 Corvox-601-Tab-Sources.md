@@ -1,9 +1,0 @@
-- [Worthy.com](https://worthy.com)  
-- [The Other Side of Language: A Philosophy of Listening](https://www.amazon.com/Other-Side-Language-Philosophy-Listening/dp/041504927X)  
-- Forbes article  
-- [Edmund Husserl](https://en.wikipedia.org/wiki/Edmund_Husserl)  
-- [Emmanuel Levinas](https://plato.stanford.edu/entries/levinas/)  
-- [Radical Markets by Eric Posner and Glen Wey](http://www.dklevine.com/papers/radical.79.pdf)  
-- [InnoVuntu - Africa's Healthy Growth Alliance](https://innovuntu.org/thegathering)  
-- [The Power of Impact Investing: Putting Markets to Work for Profit and Global Good by Judith Rodin & Margot Brandenburg | A Guide to “Good” Investment (ssir.org)](https://ssir.org/books/reviews/entry/a_guide_to_good_investment)  
-- [Take Action for the Sustainable Development Goals – United Nations Sustainable Development](https://www.un.org/sustainabledevelopment/sustainable-development-goals/)  

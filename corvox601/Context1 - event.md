@@ -1,1 +1,0 @@
-Context: This 601 discussion has begun under the premise that it will result in a 601 Special Event where the salient points discovered by this group will be brought to life in front of an audience of people interested in the idea that Impact Investing can be scaled/improved/proven by using some sort of new business model/technology. 
