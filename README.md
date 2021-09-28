@@ -1,9 +1,13 @@
-# flutter_dev
 
-author: Cezary Żelisko
-
+# flutter_dev / Corvox Widget
+ author: Jasper Yao
+ 
+ author: Cezary Żelisko
+ 
+ 
 ## About
 The repository contains a workspace adapted to the development of applications using the Flutter framework. The workspace with all necessary dependencies is organized in a Docker container.
+
 
 It uses the _Remote Development_ extension from the Visual Studio Code that allows you to open any folder in the container and work with it in the IDE that is installed on the host machine.
 
@@ -21,6 +25,8 @@ The following link was used as a source: https://docs.microsoft.com/en-us/azure/
 * from the popup menu choose: `Remote-Containers: Open Folder in Container...`,
 * from the opened dialog navigate to the cloned repository, i.e. _flutter_dev_,
 * now you have to wait until the building process is finished. It can take a couple of minutes. You can follow it step by step by clicking _details_ in the dialog that appears in the bottom right corner of the window.
+
+In particular, you need to install WSL2 which at time of writing is not part of standard windows installation. It may be necessary to install Ubuntu or other distribution in the course of enabling WSL from standard windows options. Please make sure to install Ubuntu or another distribution AFTER you have fully updated to WSL2 despite all requests to the contrary. In the case you have made mistake and are seeing wls2 related errors. The first thing to check is the wslconfig /v and wslconfig /s tool whereas as the wls instructions may be unclear. 
 
 You can check whether everything is set up correctly by opening new terminal window (`Terminal -> New Terminal` from the window menu) and typing: `flutter doctor`. You should see the output with checkmarks next to the first two options (Flutter SDK and Android SDK). Android Studio will be marked with `!` but it is ok - it won't be necessary. Last option refers to the connected devices and may be either checked or not depending on whether you have connected an Android device to your computer before.
 
@@ -53,6 +59,13 @@ Azure App Service provides built-in authentication and authorization capabilitie
 | Provider                                                     | Sign-in endpoint   | How-To guidance                                              |
 | :----------------------------------------------------------- | :----------------- | :----------------------------------------------------------- |
 | [Microsoft Identity Platform](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis) | `/.auth/login/aad` | [App Service Microsoft Identity Platform login](https://docs.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad) |
+
+
+The following images are provided as reference and represent the architecture of the system in it's initial design:
+![img](Arch_1.png)
+![img](Arch_2.png)
+![img](Arch_3.png)
+
 
 
 We also use a github action specified

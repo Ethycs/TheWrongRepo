@@ -1,10 +1,12 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
-
 import 'dart:async';
-
+import 'package:easy_web_view/easy_web_view.dart';
+import 'package:bottom_bar_with_sheet/bottom_bar_with_sheet.dart';
 import 'app_constants.dart';
 import 'app_ffi_js.dart';
 import 'totem.dart';
@@ -78,48 +80,172 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
               textStyle: const TextStyle(fontSize: 20),
             ),
             onPressed: () {
-              login;
-              print("button pressed");
+              login();
             },
             child: const Text('Login'),
           )
         ],
-        backgroundColor: kBackgroundColor,
+        backgroundColor: Color.fromARGB(1, 39, 39, 39),
       ),
-      backgroundColor: kBackgroundColorDark,
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              height: 150,
-            ),
-            SizedBox(
-              height: 300,
-            ),
-            SizedBox(
-              height: 150,
-              width: 150,
-              child: Stack(
-                alignment: Alignment.center,
-                fit: StackFit.loose,
-                children: <Widget>[
-                  Totem(
-                    stream: fluxStream,
+      backgroundColor: Color.fromRGBO(42, 42, 42, 1),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  height: 800,
+                  width: 900,
+                  child: EasyWebView(
+                    src:
+                        'https://publish.obsidian.md/corvox601/001+Corvox-601-Main',
+                    onLoaded: () {
+                      // You could choose to edit the html layout this way
+                    },
+                    height: 800,
+                    width: 800,
                   ),
-                  CustomPaint(
-                    painter: ButtonRing(Colors.black, 100.0),
-                    child: RecordingButton(_toggleRecording),
-                    foregroundPainter: ButtonRing(Colors.white, 90.0),
-                  ),
-                ],
+                ),
+              ]),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                padding: const EdgeInsets.all(8),
+                height: 8,
+                width: 166,
               ),
-            ),
-          ],
-        ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                width: 250,
+                height: 250,
+                child: SizedBox(
+//                    This is Recording Button Code, don't edit in here.
+                  height: 150,
+                  width: 150,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    fit: StackFit.loose,
+                    children: <Widget>[
+                      Totem(
+                        stream: fluxStream,
+                      ),
+                      CustomPaint(
+                        painter: ButtonRing(Colors.black, 100.0),
+                        child: RecordingButton(_toggleRecording),
+                        foregroundPainter: ButtonRing(Colors.white, 90.0),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                  height: 750,
+                  width: 250,
+                  child: GridView.count(
+                    primary: false,
+                    padding: const EdgeInsets.all(8),
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    crossAxisCount: 2,
+                    children: <Widget>[
+                      Container(
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('assets/Img-Aaron.jpg'),
+                        color: Colors.black,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('assets/Img-Alex.jpg'),
+                        color: Colors.black,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('assets/Img-Ander.jpg'),
+                        color: Colors.black,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('assets/Img-Fortunato.jpg'),
+                        color: Colors.black,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('assets/Img-Frank.jpg'),
+                        color: Colors.black,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('assets/Img-Hans.jpg'),
+                        color: Colors.black,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('assets/Img-Luni.jpg'),
+                        color: Colors.black,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('assets/Img-Monkia.jpg'),
+                        color: Colors.black,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('assets/Img-Sanjay.jpg'),
+                        color: Colors.black,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('assets/Img-Sharon.jpg'),
+                        color: Colors.black,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('assets/Img-Tawanda.jpg'),
+                        color: Colors.black,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(1),
+                        child: Image.asset('assets/Img-Michael.jpg'),
+                        color: Color.fromRGBO(42, 42, 42, 1),
+                      ),
+                    ],
+                  ))
+            ],
+          ),
+          Container()
+        ],
       ),
+      // bottomNavigationBar: BottomBarWithSheet(
+      //   selectedIndex: 0,
+      //   sheetChild: Center(child: Text("Place for other content")),
+      //   bottomBarTheme: BottomBarTheme(
+      //     mainButtonPosition: MainButtonPosition.middle,
+      //     selectedItemIconColor: const Color(0xFF2B65E3),
+      //   ),
+      //   mainActionButtonTheme: MainActionButtonTheme(
+      //     size: 60,
+      //     color: const Color(0xFF2B65E3),
+      //     icon: Icon(
+      //       Icons.add,
+      //       color: Colors.white,
+      //       size: 35,
+      //     ),
+      //   ),
+      //   onSelectItem: (index) => print('item $index was pressed'),
+      //   items: [
+      //     BottomBarWithSheetItem(label: "EULA", icon: Icons.people),
+      //     BottomBarWithSheetItem(label: "Damnit Michael", icon: Icons.people),
+      //     BottomBarWithSheetItem(label: "Bene Gesserit", icon: Icons.people),
+      //     BottomBarWithSheetItem(
+      //         label: "Special thanks to...", icon: Icons.favorite),
+      //   ],
+      // ),
     );
   }
 }
@@ -168,7 +294,7 @@ class _RecordingButtonState extends State<RecordingButton> {
   @override
   void initState() {
     super.initState();
-    color = Colors.red;
+    color = Colors.green;
     borderRadius = 50.0;
     margin = 40;
     box = 40.0;
@@ -188,7 +314,7 @@ class _RecordingButtonState extends State<RecordingButton> {
       duration: Duration(milliseconds: 250),
       decoration: BoxDecoration(
         // You can add a border here!
-        color: Colors.red,
+        color: Colors.green,
         borderRadius: BorderRadius.circular(recording ? borderRadius : 8),
       ),
       child: Material(
