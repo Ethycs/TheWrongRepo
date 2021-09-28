@@ -22,15 +22,15 @@ class _TotemState extends State<Totem> with TickerProviderStateMixin {
     super.initState();
     _controller0 = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 12),
+      duration: Duration(seconds: 120),
     );
     _controller1 = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 16),
+      duration: Duration(seconds: 160),
     );
     _controller2 = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 20),
+      duration: Duration(seconds: 200),
     );
     _controller0.repeat();
     _controller1.repeat();
@@ -173,9 +173,9 @@ class AtomPaint extends CustomPainter {
     drawAxis(value, canvas, 60, Paint()..color = Colors.white);
     drawAxis(value1, canvas, 100, Paint()..color = Colors.white);
     drawAxis(value2, canvas, 140, Paint()..color = Colors.white);
-    drawAxis(value, canvas, 180, Paint()..color = Colors.white);
-    drawAxis(value1, canvas, 220, Paint()..color = Colors.white);
-    drawAxis(value2, canvas, 260, Paint()..color = Colors.white);
+    //drawAxis(value, canvas, 180, Paint()..color = Colors.white);
+    //drawAxis(value1, canvas, 220, Paint()..color = Colors.white);
+    //drawAxis(value2, canvas, 260, Paint()..color = Colors.white);
   }
 
   drawAxis(double value, Canvas canvas, double radius, Paint paint) {
