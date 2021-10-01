@@ -19,6 +19,79 @@ void main() {
   runApp(ConduitApp());
 }
 
+class TabBarViewWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      initialIndex: 1,
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.black26,
+          // title: Text('TabBar Widget'),
+          bottom: TabBar(
+            indicatorColor: Colors.lime,
+            indicatorWeight: 5.0,
+            labelColor: Colors.white,
+            labelPadding: EdgeInsets.only(top: 10.0),
+            unselectedLabelColor: Colors.grey,
+            tabs: [
+              Tab(
+                text: 'Links',
+                icon: Icon(
+                  Icons.link,
+                  color: Colors.white,
+                ),
+                iconMargin: EdgeInsets.only(bottom: 10.0),
+              ),
+              //child: Image.asset('images/android.png'),
+
+              Tab(
+                text: 'EULA',
+                icon: Icon(
+                  Icons.business,
+                  color: Colors.white,
+                ),
+                iconMargin: EdgeInsets.only(bottom: 10.0),
+              ),
+              Tab(
+                text: 'Privacy',
+                icon: Icon(
+                  Icons.person,
+                  color: Colors.white,
+                ),
+                iconMargin: EdgeInsets.only(bottom: 10.0),
+              ),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: [
+            Center(
+              child: EasyWebView(
+                src:
+                    "https://publish.obsidian.md/corvox601/006+Corvox-601-Tab-Links",
+                onLoaded: () {},
+                width: 800,
+              ),
+            ),
+            Center(
+                child: Text(
+              'This is Radio Tab',
+              style: TextStyle(fontSize: 32),
+            )),
+            Center(
+                child: Text(
+              'This is Gift Tab',
+              style: TextStyle(fontSize: 32),
+            )),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class ConduitApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -110,6 +183,15 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
                     width: 800,
                   ),
                 ),
+                Container(
+                  child: Expanded(
+                    child: Container(
+                      height: 500,
+                      width: 900,
+                      child: TabBarViewWidget(),
+                    ),
+                  ),
+                ),
               ]),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -122,6 +204,14 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
               ),
               Container(
                 padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 2,
+                  ),
+                  // color: Colors.grey,
+                ),
                 width: 250,
                 height: 250,
                 child: SizedBox(
