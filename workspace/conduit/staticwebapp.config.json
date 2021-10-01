@@ -42,7 +42,7 @@
             "rewrite": "/invalid-invitation-error.html"
         },
         "401": {
-            "redirect": "/login",
+            // "redirect": "/login",
             "statusCode": 302
         },
         "404": {
