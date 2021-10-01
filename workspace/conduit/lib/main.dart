@@ -69,6 +69,7 @@ class TabBarViewWidget extends StatelessWidget {
           children: [
             Center(
               child: EasyWebView(
+                key: ValueKey("Link View"),
                 src:
                     "https://publish.obsidian.md/corvox601/006+Corvox-601-Tab-Links",
                 onLoaded: () {},
@@ -153,9 +154,9 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
               textStyle: const TextStyle(fontSize: 20),
             ),
             onPressed: () {
-              login();
+              logout();
             },
-            child: const Text('Login'),
+            child: const Text('Logout'),
           )
         ],
         backgroundColor: Color.fromARGB(1, 39, 39, 39),
@@ -174,6 +175,7 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
                   height: 800,
                   width: 900,
                   child: EasyWebView(
+                    key: ValueKey("Main View"),
                     src:
                         'https://publish.obsidian.md/corvox601/001+Corvox-601-Main',
                     onLoaded: () {

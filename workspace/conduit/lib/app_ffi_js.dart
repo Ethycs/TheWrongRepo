@@ -30,8 +30,8 @@ void _dialogState(List<dynamic> input) {
   // print("Dialog! $stringed");
 }
 
-@JS('login')
-external void login();
+@JS('logout')
+external void logout();
 
 @JS('fluxState')
 external set _fluxState(void Function(List<dynamic> input) f); //JsObject diff
