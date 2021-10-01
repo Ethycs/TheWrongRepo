@@ -33,7 +33,7 @@ class TabBarViewWidget extends StatelessWidget {
             indicatorColor: Colors.lime,
             indicatorWeight: 5.0,
             labelColor: Colors.white,
-            labelPadding: EdgeInsets.only(top: 10.0),
+            labelPadding: EdgeInsets.only(top: 4.0),
             unselectedLabelColor: Colors.grey,
             tabs: [
               Tab(
@@ -77,13 +77,15 @@ class TabBarViewWidget extends StatelessWidget {
               ),
             ),
             Center(
-                child: Text(
-              'This is Radio Tab',
-              style: TextStyle(fontSize: 32),
+                child: EasyWebView(
+              key: ValueKey("EULA View"),
+              src: "https://publish.obsidian.md/corvox601/EULA",
+              onLoaded: () {},
+              width: 800,
             )),
             Center(
                 child: Text(
-              'This is Gift Tab',
+              'TBD',
               style: TextStyle(fontSize: 32),
             )),
           ],
@@ -212,7 +214,7 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
                     color: Colors.black,
                     width: 2,
                   ),
-                  // color: Colors.grey,
+                  color: Color.fromARGB(1, 32, 32, 32),
                 ),
                 width: 250,
                 height: 250,
