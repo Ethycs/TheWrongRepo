@@ -7,7 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'dart:async';
 import 'package:easy_web_view/easy_web_view.dart';
 import 'package:bottom_bar_with_sheet/bottom_bar_with_sheet.dart';
-import 'app_constants.dart';
+// import 'app_constants.dart';
 import 'app_ffi_js.dart';
 import 'totem.dart';
 
@@ -27,6 +27,7 @@ class TabBarViewWidget extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
+          toolbarHeight: 30,
           backgroundColor: Colors.black26,
           // title: Text('TabBar Widget'),
           bottom: TabBar(
@@ -172,23 +173,27 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  height: 800,
-                  width: 900,
-                  child: EasyWebView(
-                    key: ValueKey("Main View"),
-                    src:
-                        'https://publish.obsidian.md/corvox601/001+Corvox-601-Main',
-                    onLoaded: () {
-                      // You could choose to edit the html layout this way
-                    },
+                Expanded(
+                  flex: 6,
+                  child: Container(
+                    padding: const EdgeInsets.all(8),
                     height: 800,
-                    width: 800,
+                    width: 840,
+                    child: EasyWebView(
+                      key: ValueKey("Main View"),
+                      src:
+                          'https://publish.obsidian.md/corvox601/001+Corvox-601-Main',
+                      onLoaded: () {
+                        // You could choose to edit the html layout this way
+                      },
+                      height: 800,
+                      width: 800,
+                    ),
                   ),
                 ),
                 Container(
                   child: Expanded(
+                    flex: 3,
                     child: Container(
                       height: 500,
                       width: 900,
