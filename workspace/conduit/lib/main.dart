@@ -19,91 +19,91 @@ void main() {
   runApp(ConduitApp());
 }
 
-class TabBarViewWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return DefaultTabController(
-      initialIndex: 1,
-      length: 3,
-      child: Scaffold(
-        appBar: AppBar(
-          toolbarHeight: 30,
-          backgroundColor: Colors.black26,
-          // title: Text('TabBar Widget'),
-          bottom: TabBar(
-            indicatorColor: Colors.lime,
-            indicatorWeight: 5.0,
-            labelColor: Colors.white,
-            labelPadding: EdgeInsets.only(top: 4.0),
-            unselectedLabelColor: Colors.grey,
-            tabs: [
-              Tab(
-                text: 'Links',
-                icon: Icon(
-                  Icons.link,
-                  color: Colors.white,
-                ),
-                iconMargin: EdgeInsets.only(bottom: 10.0),
-              ),
-              //child: Image.asset('images/android.png'),
+//class TabBarViewWidget extends StatelessWidget {
+//  @override
+//  Widget build(BuildContext context) {
+//    return DefaultTabController(
+//      initialIndex: 1,
+//      length: 3,
+//      child: Scaffold(
+//        appBar: AppBar(
+//          toolbarHeight: 30,
+//          backgroundColor: Colors.black26,
+//          // title: Text('TabBar Widget'),
+//          bottom: TabBar(
+//            indicatorColor: Colors.lime,
+//            indicatorWeight: 5.0,
+//            labelColor: Colors.white,
+//            labelPadding: EdgeInsets.only(top: 4.0),
+//            unselectedLabelColor: Colors.grey,
+//            tabs: [
+//              Tab(
+//                text: 'Links',
+//                icon: Icon(
+//                  Icons.link,
+//                  color: Colors.white,
+//                ),
+//                iconMargin: EdgeInsets.only(bottom: 10.0),
+//              ),
+//              //child: Image.asset('images/android.png'),
 
-              Tab(
-                text: 'EULA',
-                icon: Icon(
-                  Icons.business,
-                  color: Colors.white,
-                ),
-                iconMargin: EdgeInsets.only(bottom: 10.0),
-              ),
-              Tab(
-                text: 'Privacy',
-                icon: Icon(
-                  Icons.person,
-                  color: Colors.white,
-                ),
-                iconMargin: EdgeInsets.only(bottom: 10.0),
-              ),
-            ],
-          ),
-        ),
-        body: TabBarView(
-          children: [
-            Center(
-              child: EasyWebView(
-                key: ValueKey("Link View"),
-                src:
-                    "https://publish.obsidian.md/corvox601/006+Corvox-601-Tab-Links",
-                onLoaded: () {},
-                width: 800,
-              ),
-            ),
-            Center(
-                child: EasyWebView(
-              key: ValueKey("EULA View"),
-              src: "https://publish.obsidian.md/corvox601/EULA",
-              onLoaded: () {},
-              width: 800,
-            )),
-            Center(
-                child: Text(
-              'TBD',
-              style: TextStyle(fontSize: 32),
-            )),
-          ],
-        ),
-      ),
-    );
-  }
-}
+//              Tab(
+//                text: 'EULA',
+//                icon: Icon(
+//                  Icons.business,
+//                  color: Colors.white,
+//                ),
+//                iconMargin: EdgeInsets.only(bottom: 10.0),
+//              ),
+//              Tab(
+//                text: 'Privacy',
+//                icon: Icon(
+//                  Icons.person,
+//                  color: Colors.white,
+//                ),
+//                iconMargin: EdgeInsets.only(bottom: 10.0),
+//              ),
+//            ],
+//          ),
+//        ),
+//        body: TabBarView(
+//          children: [
+//            Center(
+//              child: EasyWebView(
+//                key: ValueKey("Link View"),
+//                src:
+//                    "https://publish.obsidian.md/corvox601/006+Corvox-601-Tab-Links",
+//                onLoaded: () {},
+//                width: 800,
+//              ),
+//            ),
+//            Center(
+//                child: EasyWebView(
+//              key: ValueKey("EULA View"),
+//              src: "https://publish.obsidian.md/corvox601/EULA",
+//              onLoaded: () {},
+//              width: 800,
+//            )),
+//            Center(
+//                child: Text(
+//              'TBD',
+//              style: TextStyle(fontSize: 32),
+//            )),
+//          ],
+//        ),
+//      ),
+//    );
+//  }
+//}
 
 class ConduitApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Corvox Conduit',
+      title: 'Corvox Conduit for 601',
       theme: ThemeData.dark(),
-      home: ConduitHomePage(title: 'Corvox Conduit'),
+      home: ConduitHomePage(title: 'Corvox Conduit for 601'),
     );
   }
 }
@@ -196,8 +196,8 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
                     flex: 3,
                     child: Container(
                       height: 500,
-                      width: 900,
-                      child: TabBarViewWidget(),
+                      width: 300,
+//                      child: TabBarViewWidget(),
                     ),
                   ),
                 ),
@@ -209,7 +209,7 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
               Container(
                 padding: const EdgeInsets.all(8),
                 height: 8,
-                width: 166,
+                width: 250,
               ),
               Container(
                 padding: const EdgeInsets.all(8),
