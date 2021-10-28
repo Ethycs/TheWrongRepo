@@ -170,9 +170,9 @@ class AtomPaint extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    drawAxis(value, canvas, 60, Paint()..color = Colors.white);
-    drawAxis(value1, canvas, 100, Paint()..color = Colors.white);
-    drawAxis(value2, canvas, 140, Paint()..color = Colors.white);
+    drawAxis(value, canvas, 61, Paint()..color = Colors.white);
+    drawAxis(value1, canvas, 85, Paint()..color = Colors.white);
+    drawAxis(value2, canvas, 110, Paint()..color = Colors.white);
     //drawAxis(value, canvas, 180, Paint()..color = Colors.white);
     //drawAxis(value1, canvas, 220, Paint()..color = Colors.white);
     //drawAxis(value2, canvas, 260, Paint()..color = Colors.white);
@@ -200,8 +200,8 @@ class AtomPaint extends CustomPainter {
           canvas.drawRect(
               Rect.fromCenter(
                 center: offset,
-                width: 20.0,
-                height: 20.0,
+                width: 18.0,
+                height: 18.0,
               ),
               paint);
         }

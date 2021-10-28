@@ -1,12 +1,11 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
 import 'dart:async';
 import 'package:easy_web_view/easy_web_view.dart';
-import 'package:bottom_bar_with_sheet/bottom_bar_with_sheet.dart';
 // import 'app_constants.dart';
 import 'app_ffi_js.dart';
 import 'totem.dart';
@@ -19,85 +18,9 @@ void main() {
   runApp(ConduitApp());
 }
 
-//class TabBarViewWidget extends StatelessWidget {
-//  @override
-//  Widget build(BuildContext context) {
-//    return DefaultTabController(
-//      initialIndex: 1,
-//      length: 3,
-//      child: Scaffold(
-//        appBar: AppBar(
-//          toolbarHeight: 30,
-//          backgroundColor: Colors.black26,
-//          // title: Text('TabBar Widget'),
-//          bottom: TabBar(
-//            indicatorColor: Colors.lime,
-//            indicatorWeight: 5.0,
-//            labelColor: Colors.white,
-//            labelPadding: EdgeInsets.only(top: 4.0),
-//            unselectedLabelColor: Colors.grey,
-//            tabs: [
-//              Tab(
-//                text: 'Links',
-//                icon: Icon(
-//                  Icons.link,
-//                  color: Colors.white,
-//                ),
-//                iconMargin: EdgeInsets.only(bottom: 10.0),
-//              ),
-//              //child: Image.asset('images/android.png'),
-
-//              Tab(
-//                text: 'EULA',
-//                icon: Icon(
-//                  Icons.business,
-//                  color: Colors.white,
-//                ),
-//                iconMargin: EdgeInsets.only(bottom: 10.0),
-//              ),
-//              Tab(
-//                text: 'Privacy',
-//                icon: Icon(
-//                  Icons.person,
-//                  color: Colors.white,
-//                ),
-//                iconMargin: EdgeInsets.only(bottom: 10.0),
-//              ),
-//            ],
-//          ),
-//        ),
-//        body: TabBarView(
-//          children: [
-//            Center(
-//              child: EasyWebView(
-//                key: ValueKey("Link View"),
-//                src:
-//                    "https://publish.obsidian.md/corvox601/006+Corvox-601-Tab-Links",
-//                onLoaded: () {},
-//                width: 800,
-//              ),
-//            ),
-//            Center(
-//                child: EasyWebView(
-//              key: ValueKey("EULA View"),
-//              src: "https://publish.obsidian.md/corvox601/EULA",
-//              onLoaded: () {},
-//              width: 800,
-//            )),
-//            Center(
-//                child: Text(
-//              'TBD',
-//              style: TextStyle(fontSize: 32),
-//            )),
-//          ],
-//        ),
-//      ),
-//    );
-//  }
-//}
-
 class ConduitApp extends StatelessWidget {
   // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -219,7 +142,7 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
                     color: Colors.black,
                     width: 2,
                   ),
-                  color: Color.fromARGB(1, 32, 32, 32),
+                  color: Color.fromRGBO(42, 42, 42, 1),
                 ),
                 width: 250,
                 height: 250,
@@ -320,31 +243,6 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
           Container()
         ],
       ),
-      // bottomNavigationBar: BottomBarWithSheet(
-      //   selectedIndex: 0,
-      //   sheetChild: Center(child: Text("Place for other content")),
-      //   bottomBarTheme: BottomBarTheme(
-      //     mainButtonPosition: MainButtonPosition.middle,
-      //     selectedItemIconColor: const Color(0xFF2B65E3),
-      //   ),
-      //   mainActionButtonTheme: MainActionButtonTheme(
-      //     size: 60,
-      //     color: const Color(0xFF2B65E3),
-      //     icon: Icon(
-      //       Icons.add,
-      //       color: Colors.white,
-      //       size: 35,
-      //     ),
-      //   ),
-      //   onSelectItem: (index) => print('item $index was pressed'),
-      //   items: [
-      //     BottomBarWithSheetItem(label: "EULA", icon: Icons.people),
-      //     BottomBarWithSheetItem(label: "Damnit Michael", icon: Icons.people),
-      //     BottomBarWithSheetItem(label: "Bene Gesserit", icon: Icons.people),
-      //     BottomBarWithSheetItem(
-      //         label: "Special thanks to...", icon: Icons.favorite),
-      //   ],
-      // ),
     );
   }
 }
@@ -361,7 +259,7 @@ class ButtonRing extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final _paint = Paint()
       ..color = customColor
-      ..strokeWidth = 5
+      ..strokeWidth = 1
       ..style = PaintingStyle.stroke;
     canvas.drawOval(
       Rect.fromCenter(
