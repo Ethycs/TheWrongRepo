@@ -10,6 +10,23 @@ import 'package:easy_web_view/easy_web_view.dart';
 import 'app_ffi_js.dart';
 import 'totem.dart';
 
+const _url1 = 'https://www.linkedin.com/in/micalco/';
+const _url2 = 'https://www.linkedin.com/in/frankismartinez/';
+const _url3 = 'https://www.linkedin.com/in/aaronrose/';
+const _url4 = 'https://www.linkedin.com/in/hhanspal/';
+const _url5 = 'https://www.linkedin.com/in/monika-aring-11808b2/';
+const _url6 = 'https://www.linkedin.com/in/dr-alex-cahana-health-blockchanger/';
+const _url7 = 'https://www.linkedin.com/in/andrew-kgorane-804284109/';
+const _url8 = 'https://www.linkedin.com/in/tawanda-chabikwa/';
+const _url9 = 'https://www.linkedin.com/in/boldingbroke/';
+const _url0 = 'https://www.linkedin.com/in/lunarmobiscuit/';
+const _url11 = 'https://www.linkedin.com/in/sanjay-joshi-271508/';
+const _url12 = 'https://www.linkedin.com/in/ericrasmussenmd/';
+const _url13 = 'https://www.linkedin.com/in/aaronrose/';
+const _url14 = 'https://www.linkedin.com/in/anderdobo/';
+const _url15 = 'https://www.linkedin.com/in/fortunato911/';
+const _url21 = 'https://www.linkedin.com/in/ericrasmussenmd/';
+
 Stream<String> fluxStream = fluxController.stream;
 
 void main() {
@@ -174,68 +191,53 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
                     padding: const EdgeInsets.all(8),
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
-                    crossAxisCount: 2,
+                    crossAxisCount: 3,
                     children: <Widget>[
-                      Container(
-                        padding: const EdgeInsets.all(1),
-                        child: Image.asset('assets/Img-Aaron.jpg'),
-                        color: Colors.black,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(1),
-                        child: Image.asset('assets/Img-Alex.jpg'),
-                        color: Colors.black,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(1),
-                        child: Image.asset('assets/Img-Ander.jpg'),
-                        color: Colors.black,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(1),
-                        child: Image.asset('assets/Img-Fortunato.jpg'),
-                        color: Colors.black,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(1),
-                        child: Image.asset('assets/Img-Frank.jpg'),
-                        color: Colors.black,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(1),
-                        child: Image.asset('assets/Img-Hans.jpg'),
-                        color: Colors.black,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(1),
-                        child: Image.asset('assets/Img-Luni.jpg'),
-                        color: Colors.black,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(1),
-                        child: Image.asset('assets/Img-Monkia.jpg'),
-                        color: Colors.black,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(1),
-                        child: Image.asset('assets/Img-Sanjay.jpg'),
-                        color: Colors.black,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(1),
-                        child: Image.asset('assets/Img-Sharon.jpg'),
-                        color: Colors.black,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(1),
-                        child: Image.asset('assets/Img-Tawanda.jpg'),
-                        color: Colors.black,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(1),
-                        child: Image.asset('assets/Img-Michael.jpg'),
-                        color: Color.fromRGBO(42, 42, 42, 1),
-                      ),
+                      ProfileCard(
+                          imagePath: 'assets/Img-Michael.jpg',
+                          onTap: () => _launchUrl(_url1)),
+                      ProfileCard(
+                          imagePath: 'assets/Img-Fortunato.jpg',
+                          onTap: () => _launchUrl(_url15)),
+                      ProfileCard(
+                          imagePath: 'assets/Img-Aaron.jpg',
+                          onTap: () => _launchUrl(_url3)),
+                      ProfileCard(
+                          imagePath: 'assets/Img-Alex.jpg',
+                          onTap: () => _launchUrl(_url6)),
+                      ProfileCard(
+                          imagePath: 'assets/Img-Andrew.jpg',
+                          onTap: () => _launchUrl(_url7)),
+                      ProfileCard(
+                          imagePath: 'assets/Img-Ander.jpg',
+                          onTap: () => _launchUrl(_url14)),
+                      ProfileCard(
+                          imagePath: 'assets/Img-Eric.jpg',
+                          onTap: () => _launchUrl(_url12)),
+                      ProfileCard(
+                          imagePath: 'assets/Img-Frank.jpg',
+                          onTap: () => _launchUrl(_url2)),
+                      ProfileCard(
+                          imagePath: 'assets/Img-Hans.jpg',
+                          onTap: () => _launchUrl(_url4)),
+                      ProfileCard(
+                          imagePath: 'assets/Img-Luni.jpg',
+                          onTap: () => _launchUrl(_url0)),
+                      ProfileCard(
+                          imagePath: 'assets/Img-Monkia.jpg',
+                          onTap: () => _launchUrl(_url5)),
+                      ProfileCard(
+                          imagePath: 'assets/Img-Sanjay.jpg',
+                          onTap: () => _launchUrl(_url11)),
+                      ProfileCard(
+                          imagePath: 'assets/Img-Sharon.jpg',
+                          onTap: () => _launchUrl(_url9)),
+                      ProfileCard(
+                          imagePath: 'assets/Img-Tawanda.jpg',
+                          onTap: () => _launchUrl(_url8)),
+                      ProfileCard(
+                          imagePath: 'assets/Img-Eric.jpg',
+                          onTap: () => _launchUrl(_url21)),
                     ],
                   ))
             ],
@@ -244,6 +246,39 @@ class _ConduitHomePageState extends State<ConduitHomePage> {
         ],
       ),
     );
+  }
+}
+
+// Function for Image URLs here
+
+class ProfileCard extends StatelessWidget {
+  final String imagePath;
+  final VoidCallback onTap;
+
+  const ProfileCard({
+    this.imagePath,
+    this.onTap,
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.all(1),
+        child: Image.asset(imagePath),
+        color: Colors.black,
+      ),
+    );
+  }
+}
+
+_launchUrl(String url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }
 
