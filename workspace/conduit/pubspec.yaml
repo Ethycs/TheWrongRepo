@@ -23,8 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
- 
-    
+     
   #flutter_sound: ^7.4.13+3
   js: ^0.6.2
   provider: ^5.0.0
